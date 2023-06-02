@@ -48,12 +48,12 @@ namespace Fractals.Curves
             Lines = newLines;
         }
         protected abstract void SplitDown();
-        public static Curve Inicialize(CurveType type, Point start, Point end)
+        public static Curve Inicialize(CurveType type, Point start, Point end, int SetXInCenter = 0)
         {
             switch (type)
             {
                 case CurveType.LeviCurve:
-                    return new LeviCurve(SetX(170, start), SetX(-170, end));
+                    return new LeviCurve(SetX(SetXInCenter, start), SetX(-SetXInCenter, end));
                 case CurveType.KochCurve:
                     return new KochCurve(start, end);
                 default:
